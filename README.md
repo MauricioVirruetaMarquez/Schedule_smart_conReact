@@ -14,3 +14,25 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+##Importante instalacion
+
+Paso 1: Instalar Node.js (si no lo tienes)
+Descarga desde nodejs.org
+
+npx create-react-app schedule-smart-react
+
+npm create vite@latest schedule-smart-react -- --template react
+
+cd schedule-smart-react
+npm install
+
+npm install react-router-dom
+
+npm install date-fns
+
+npm install lucide-react
+
+npm install -D tailwindcss@3.4.14 postcss autoprefixer
+npx tailwindcss init -p

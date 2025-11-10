@@ -1,0 +1,211 @@
+/* ===== Modal ===== */
+.modal {
+  display: block;
+  position: fixed; 
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 50;
+  animation: fadeInModal 0.3s ease;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  width: min(1200px, 94vw);
+  max-height: 92vh;
+  overflow: auto;
+  margin: 4vh auto;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 24px;
+  animation: slideUpModal 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUpModal {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  border-bottom: 2px solid #f0f1ff; 
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.modal-header h2 {
+  font-size: 28px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.close-btn {
+  border: none; 
+  background: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+  font-size: 32px; 
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  background: #f44336;
+  color: white;
+  transform: rotate(90deg);
+}
+
+.month-nav {
+  display: flex; 
+  gap: 12px; 
+  align-items: center; 
+  margin: 16px 0 24px;
+  justify-content: center;
+}
+
+.nav-btn {
+  border: 2px solid #667eea;
+  background: #fff;
+  color: #667eea;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.nav-btn:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* ===== Formulario de evento ===== */
+.add-event-section { 
+  margin-top: 24px;
+  padding: 24px;
+  background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+  border-radius: 16px;
+  border: 2px solid #eceefe;
+}
+
+.add-event-section h3 {
+  margin: 0 0 20px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #667eea;
+}
+
+.event-form {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(150px, 1fr)) auto;
+  gap: 16px;
+  align-items: end;
+}
+
+.form-group { 
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label { 
+  font-weight: 700;
+  font-size: 13px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px;
+  border: 2px solid #eceefe;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.add-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.5);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1200px) {
+  .event-form {
+    grid-template-columns: 1fr;
+  }
+  
+  .add-btn {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    width: 100%;
+    max-height: 100vh;
+    margin: 0;
+    border-radius: 0;
+    padding: 16px;
+  }
+  
+  .modal-header h2 {
+    font-size: 20px;
+  }
+  
+  .month-nav {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .nav-btn {
+    width: 100%;
+    padding: 12px;
+  }
+}

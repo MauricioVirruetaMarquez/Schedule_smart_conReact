@@ -1,0 +1,164 @@
+/* ===== Calendario Grande ===== */
+.large-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+}
+
+.large-day-header {
+  font-weight: 900;
+  text-align: center;
+  color: #667eea;
+  padding: 12px 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.large-day-cell {
+  background: linear-gradient(135deg, #fafbff 0%, #fff 100%);
+  border: 2px solid #eceefe;
+  border-radius: 16px;
+  min-height: 120px;
+  padding: 12px;
+  display: flex; 
+  flex-direction: column; 
+  gap: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.large-day-cell:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
+}
+
+.large-day-cell.today { 
+  outline: 3px solid #667eea;
+  background: linear-gradient(135deg, #e9f4ff 0%, #f0f7ff 100%);
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+}
+
+.large-day-cell.other-month { 
+  color: #bbb; 
+  background: #fafbff;
+  border-color: #f5f6fb;
+}
+
+.day-number { 
+  font-weight: 900;
+  font-size: 16px;
+  color: #667eea;
+}
+
+.event-list { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 6px;
+  overflow-y: auto;
+  max-height: 80px;
+}
+
+.event-item {
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+  border: 2px solid #eceefe;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  position: relative;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.event-item:hover { 
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: #667eea;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.event-text { 
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.event-delete-btn {
+  background: rgba(244, 67, 54, 0.9);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: all 0.2s ease;
+  font-weight: 700;
+}
+
+.event-item:hover .event-delete-btn { 
+  opacity: 1;
+}
+
+.event-delete-btn:hover { 
+  background: #d32f2f;
+  transform: scale(1.2) rotate(90deg);
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.5);
+}
+
+/* ===== Categorías de eventos ===== */
+.event-item[data-category="personal"] {
+  border-left: 4px solid #2196F3;
+}
+
+.event-item[data-category="trabajo"] {
+  border-left: 4px solid #FF9800;
+}
+
+.event-item[data-category="estudio"] {
+  border-left: 4px solid #9C27B0;
+}
+
+.event-item[data-category="salud"] {
+  border-left: 4px solid #4CAF50;
+}
+
+.event-item[data-category="social"] {
+  border-left: 4px solid #E91E63;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .large-calendar-grid {
+    gap: 4px;
+  }
+  
+  .large-day-cell {
+    min-height: 80px;
+    padding: 6px;
+    font-size: 11px;
+  }
+  
+  .day-number {
+    font-size: 12px;
+  }
+  
+  .event-item {
+    font-size: 10px;
+    padding: 6px 8px;
+  }
+}

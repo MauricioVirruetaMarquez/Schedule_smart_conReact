@@ -1,0 +1,30 @@
+/* ===== Layout Principal ===== */
+.container {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: 70px 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar main";
+  height: 100vh;
+  gap: 0;
+}
+
+.main { 
+  grid-area: main; 
+  padding: 24px; 
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 70px auto 1fr;
+    grid-template-areas: 
+      "header" 
+      "sidebar" 
+      "main";
+  }
+}
